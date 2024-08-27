@@ -1,0 +1,229 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3ji82k2yvffl"]
+
+[ext_resource type="Script" path="res://combat/ui/menu_canvas.gd" id="1_uwjmg"]
+[ext_resource type="Theme" uid="uid://imx8kyejr8tk" path="res://assets/themes/new_theme.tres" id="2_bkskp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgpfe"]
+bg_color = Color(0.678431, 0.584314, 0.447059, 1)
+
+[node name="MenuCanvas" type="CanvasLayer"]
+script = ExtResource("1_uwjmg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_bkskp")
+
+[node name="StatusBar" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/StatusBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/StatusBar/MarginContainer"]
+layout_mode = 2
+
+[node name="ExitGame" type="Button" parent="VBoxContainer/StatusBar/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 2.08165e-12)
+layout_mode = 2
+text = "x"
+
+[node name="Version" type="Label" parent="VBoxContainer/StatusBar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "v0.0.1"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(320, 456)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_wgpfe")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Conquest: Combat Demo"
+horizontal_alignment = 1
+
+[node name="PlayerSettingsLabel" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Player Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerSettings" type="GridContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="Player" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PlayerSettings"]
+layout_mode = 2
+text = "Player"
+horizontal_alignment = 2
+
+[node name="PlayerOption" type="OptionButton" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PlayerSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "Attacker"
+popup/item_0/id = 0
+popup/item_1/text = "Defender"
+popup/item_1/id = 1
+
+[node name="Computer" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PlayerSettings"]
+layout_mode = 2
+text = "Computer"
+horizontal_alignment = 2
+
+[node name="ComputerOption" type="OptionButton" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PlayerSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+item_count = 2
+selected = 1
+popup/item_0/text = "Attacker"
+popup/item_0/id = 0
+popup/item_1/text = "Defender"
+popup/item_1/id = 1
+
+[node name="Points" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PlayerSettings"]
+layout_mode = 2
+text = "Points"
+horizontal_alignment = 2
+
+[node name="PointsMax" type="SpinBox" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PlayerSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 20.0
+max_value = 40.0
+step = 5.0
+value = 20.0
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CombatSettingsLabel" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Combat Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PointsAvailable" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Points Available: --"
+horizontal_alignment = 1
+
+[node name="CombatSettings" type="GridContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 3
+
+[node name="Infantry" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/CombatSettings"]
+layout_mode = 2
+text = "Infantry"
+
+[node name="InfantryCount" type="SpinBox" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/CombatSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 8.0
+
+[node name="InfantryClear" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/CombatSettings"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "X"
+
+[node name="Calvary" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/CombatSettings"]
+layout_mode = 2
+text = "Calvary"
+
+[node name="CalvaryCount" type="SpinBox" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/CombatSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 6.0
+
+[node name="CalvaryClear" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/CombatSettings"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "X"
+
+[node name="Ranged" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/CombatSettings"]
+layout_mode = 2
+text = "Ranged"
+
+[node name="RangedCount" type="SpinBox" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/CombatSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 8.0
+
+[node name="RangedClear" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/CombatSettings"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "X"
+
+[node name="Leader" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/CombatSettings"]
+layout_mode = 2
+text = "Leader"
+
+[node name="LeaderCount" type="SpinBox" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/CombatSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 8.0
+
+[node name="LeaderClear" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/CombatSettings"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "X"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+
+[node name="StartGame" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Start Combat"
+
+[node name="ResetPoints" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Reset Points"

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://brrvqw41vdsdj"]
+
+[ext_resource type="Script" path="res://combat/combat_unit.gd" id="1_b4abw"]
+[ext_resource type="PackedScene" uid="uid://c3gdbn34snv7s" path="res://combat/ui/ui_combat_unit.tscn" id="2_nr48y"]
+[ext_resource type="SpriteFrames" uid="uid://b4k7crtg24pot" path="res://assets/PVGames/knight_unit.tres" id="2_s3k4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0b0w"]
+resource_local_to_scene = true
+size = Vector2(24, 24)
+
+[node name="CombatUnit" type="Area2D"]
+y_sort_enabled = true
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_b4abw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_s3k4l")
+animation = &"Walk_S"
+offset = Vector2(2.08165e-12, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h0b0w")
+debug_color = Color(0, 0.6, 0.701961, 0.152941)
+
+[node name="UICombatUnit" parent="." node_paths=PackedStringArray("combat_unit") instance=ExtResource("2_nr48y")]
+visible = false
+combat_unit = NodePath("..")

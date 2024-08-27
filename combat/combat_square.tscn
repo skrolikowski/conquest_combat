@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4rysmdcqa42l"]
+
+[ext_resource type="Script" path="res://combat/combat_square.gd" id="1_s4yjc"]
+[ext_resource type="Theme" uid="uid://imx8kyejr8tk" path="res://assets/themes/new_theme.tres" id="2_btk75"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bkr8"]
+resource_local_to_scene = true
+size = Vector2(128, 160)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sac1o"]
+
+[node name="CombatSquare" type="Area2D"]
+script = ExtResource("1_s4yjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0bkr8")
+
+[node name="SquareInformation" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sac1o")
+
+[node name="MarginContainer" type="MarginContainer" parent="SquareInformation"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="SquareCoordsLabel" type="Label" parent="SquareInformation/MarginContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.423529)
+layout_mode = 2
+theme = ExtResource("2_btk75")
+text = "0, 0"
+
+[node name="Combatants" type="Node2D" parent="."]
+unique_name_in_owner = true

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://tyo7e5m1tf0e"]
+
+[ext_resource type="Script" path="res://combat/combat_manager.gd" id="1_vid3a"]
+[ext_resource type="PackedScene" uid="uid://8nyfq2nd8fa8" path="res://combat/ui/combat_canvas.tscn" id="2_vxnsb"]
+[ext_resource type="PackedScene" uid="uid://b3ji82k2yvffl" path="res://combat/ui/menu_canvas.tscn" id="3_3l7rt"]
+
+[node name="CombatManager" type="Node2D"]
+script = ExtResource("1_vid3a")
+
+[node name="CombatCanvas" parent="." instance=ExtResource("2_vxnsb")]
+unique_name_in_owner = true
+
+[node name="MenuCanvas" parent="." instance=ExtResource("3_3l7rt")]
+unique_name_in_owner = true

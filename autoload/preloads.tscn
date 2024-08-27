@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbpv0bi3yk82e"]
+
+[ext_resource type="Script" path="res://autoload/preloads.gd" id="1_fajel"]
+
+[node name="Preloads" type="Node"]
+script = ExtResource("1_fajel")

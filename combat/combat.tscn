@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://dus3cxbhuvtfe"]
+
+[ext_resource type="Script" path="res://combat/combat.gd" id="1_yjm4r"]
+[ext_resource type="PackedScene" uid="uid://c8ds32efgcfa" path="res://map/combat_map.tscn" id="2_mffks"]
+[ext_resource type="PackedScene" uid="uid://c4rysmdcqa42l" path="res://combat/combat_square.tscn" id="2_smk8w"]
+[ext_resource type="PackedScene" uid="uid://d3ckm3li0meag" path="res://map/tile_map.tscn" id="2_sv3ei"]
+[ext_resource type="PackedScene" uid="uid://brrvqw41vdsdj" path="res://combat/combat_unit.tscn" id="5_ehuw7"]
+
+[node name="Combat" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_yjm4r")
+
+[node name="CombatMap" parent="." instance=ExtResource("2_mffks")]
+
+[node name="TileMap" parent="." instance=ExtResource("2_sv3ei")]
+visible = false
+
+[node name="CombatSquares" type="Node2D" parent="."]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="AttackerReserves" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(128, 336)
+grid_size = Vector2i(2, 24)
+is_reserves_row = true
+
+[node name="AttackerColumn_1_0" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(256, 176)
+coords = Vector2i(1, 0)
+is_home_row = true
+
+[node name="AttackerColumn_1_1" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(256, 336)
+coords = Vector2i(1, 1)
+is_flag_square = true
+is_home_row = true
+
+[node name="AttackerColumn_1_2" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(256, 496)
+coords = Vector2i(1, 2)
+is_home_row = true
+
+[node name="AttackerColumn_2_0" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(384, 176)
+coords = Vector2i(2, 0)
+
+[node name="AttackerColumn_2_1" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(384, 336)
+coords = Vector2i(2, 1)
+
+[node name="AttackerColumn_2_2" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(384, 496)
+coords = Vector2i(2, 2)
+
+[node name="DefenderColumn_3_0" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(512, 176)
+coords = Vector2i(3, 0)
+
+[node name="DefenderColumn_3_1" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(512, 336)
+coords = Vector2i(3, 1)
+
+[node name="DefenderColumn_3_2" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(512, 496)
+coords = Vector2i(3, 2)
+
+[node name="DefenderColumn_4_0" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(640, 176)
+coords = Vector2i(4, 0)
+is_home_row = true
+
+[node name="DefenderColumn_4_1" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(640, 336)
+coords = Vector2i(4, 1)
+is_flag_square = true
+is_home_row = true
+
+[node name="DefenderColumn_4_2" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(640, 496)
+coords = Vector2i(4, 2)
+is_home_row = true
+
+[node name="DefenderReserves" parent="CombatSquares" instance=ExtResource("2_smk8w")]
+position = Vector2(768, 336)
+coords = Vector2i(5, 0)
+grid_size = Vector2i(2, 24)
+is_reserves_row = true
+
+[node name="CombatUnit" parent="." instance=ExtResource("5_ehuw7")]
+position = Vector2(64, 64)

@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3 uid="uid://8nyfq2nd8fa8"]
+
+[ext_resource type="Script" path="res://combat/ui/combat_canvas.gd" id="1_h8i5i"]
+[ext_resource type="Theme" uid="uid://imx8kyejr8tk" path="res://assets/themes/new_theme.tres" id="2_y7yr7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ll21"]
+
+[node name="CombatCanvas" type="CanvasLayer"]
+script = ExtResource("1_h8i5i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_y7yr7")
+
+[node name="StatusBar" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/StatusBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/StatusBar/MarginContainer"]
+layout_mode = 2
+
+[node name="ExitGame" type="Button" parent="VBoxContainer/StatusBar/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 2.08165e-12)
+layout_mode = 2
+text = "x"
+
+[node name="StatusInformation" type="Label" parent="VBoxContainer/StatusBar/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Status Information"
+
+[node name="TurnInformation" type="Label" parent="VBoxContainer/StatusBar/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 2.08165e-12)
+layout_mode = 2
+text = "Turn: Player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6ll21")
+
+[node name="FlashMessage" type="Label" parent="VBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "--"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Actions" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(128, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Actions"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/Actions/MarginContainer"]
+layout_mode = 2
+
+[node name="AttacksLeft" type="Label" parent="VBoxContainer/Actions/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 2.08165e-12)
+layout_mode = 2
+text = "0 Attacks Left"
+horizontal_alignment = 1
+
+[node name="Retreat" type="Button" parent="VBoxContainer/Actions/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 2.08165e-12)
+layout_mode = 2
+text = "Retreat"
+
+[node name="Undo" type="Button" parent="VBoxContainer/Actions/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Undo"
+
+[node name="EndTurn" type="Button" parent="VBoxContainer/Actions/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "End Turn"

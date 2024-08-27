@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8ds32efgcfa"]
+
+[ext_resource type="TileSet" uid="uid://nml5ocilltgn" path="res://map/combat_tile_set.tres" id="1_4updm"]
+
+[node name="CombatMap" type="TileMap"]
+tile_set = ExtResource("1_4updm")
+format = 2
+layer_0/tile_data = PackedInt32Array(458775, 0, 0, 1507335, 0, 0, 1507351, 0, 0, 1507367, 0, 0, 458791, 0, 0, 2555911, 0, 0, 2555927, 0, 0, 2555943, 0, 0, 0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0)
